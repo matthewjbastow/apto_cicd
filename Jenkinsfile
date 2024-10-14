@@ -10,7 +10,7 @@ pipeline {
                 '''
             }
         }
-        stage('read') {
+        stage('deploy') {
             steps {
                 sh 'echo "Reading..."'
                 sh '''
@@ -19,17 +19,6 @@ pipeline {
                 '''
                 sh 'ls -l'
                 sh 'cat test.txt'
-            }
-        }
-        stage('run') {
-            steps {
-                sh 'echo "Running script..."'
-                sh '''
-                    echo "going to run script now"
-                    pwd
-                '''
-                sh 'ls -l'
-                sh 'ls -l'
             }
         }
     }
