@@ -15,6 +15,7 @@ pipeline {
                     chmod 777 test.sh
                 '''
                 sh 'ls -la'
+                sh './test.sh'
             }
         }
     }
