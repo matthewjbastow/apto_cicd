@@ -29,7 +29,7 @@ pipeline {
                             pwd
                         '''
                         sh 'ls -l'
-                        sh 'chmod +x test.sh'
+                        sh "chmod +x -R ${env.WORKSPACE}"
                         sh './test.sh'
             }
         }
