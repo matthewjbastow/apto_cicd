@@ -16,6 +16,7 @@ pipeline {
                 sh '''
                     echo "going to deploy here"
                     pwd
+                    chmod -x test.sh
                 '''
             }
         }
