@@ -31,7 +31,6 @@ pipeline {
                         sh 'ls -l'
                         sh "chmod +x -R ${env.WORKSPACE}"
                         sh 'ls -l'
-                        sh './test.sh'
             }
         }
     }
