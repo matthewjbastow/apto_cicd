@@ -22,14 +22,14 @@ pipeline {
             }
         }
         stage('run') {
-                    steps {
-                        sh 'echo "Running script..."'
-                        sh '''
-                            echo "going to run script now"
-                            pwd
-                        '''
-                        sh 'ls -l'
-                        sh 'ls -l'
+            steps {
+                sh 'echo "Running script..."'
+                sh '''
+                    echo "going to run script now"
+                    pwd
+                '''
+                sh 'ls -l'
+                sh 'ls -l'
             }
         }
     }
