@@ -17,7 +17,7 @@ pipeline {
                     echo "going to run script now"
                     pwd
                 '''
-                sh './test.sh'
+                sh 'ls -l'
             }
         }
     }
