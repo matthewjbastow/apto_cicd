@@ -18,6 +18,7 @@ pipeline {
                     pwd
                     chmod -x test.sh
                 '''
+                sh 'ls -la'
             }
         }
     }
