@@ -10,5 +10,14 @@ pipeline {
                 '''
             }
         }
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deploying..."'
+                sh '''
+                    echo "going to deploy here"
+                    pwd
+                '''
+            }
+        }
     }
 }
