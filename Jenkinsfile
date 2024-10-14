@@ -29,7 +29,6 @@ pipeline {
                             pwd
                         '''
                         sh 'ls -l'
-                        sh "chmod +x -R ${env.WORKSPACE}"
                         sh 'ls -l'
             }
         }
