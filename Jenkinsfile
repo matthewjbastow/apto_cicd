@@ -3,11 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "Hello World"'
-                sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
+                sh 'echo "Building..."'
             }
         }
         stage('Deploy') {
@@ -16,7 +12,7 @@ pipeline {
                 sh '''
                     echo "going to deploy here"
                     pwd
-                    chmod -x test.sh
+                    chmod 777 test.sh
                 '''
                 sh 'ls -la'
             }
