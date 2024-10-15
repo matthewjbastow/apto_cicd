@@ -3,14 +3,15 @@ pipeline {
         environment {
         SPLUNK_APP_DIR = "TA-sample-app"
         APP_PACKAGE = "TA-sample-app.tar.gz"
-        ACS_USERNAME = credentials('matthewbastow') // ACS Username
-        ACS_PASSWORD = credentials('JfB9105&') // ACS Password or Token
+        SPLUNK_CREDENTIALS = credentials('SPLUNK_CREDENTIALS') // ACS Username
         SPLUNK_CLOUD_API_URL = "https://api.splunk.com/2.0/rest/login/splunk"
     }
     stages {
         stage('Build') {
             steps {
                 sh 'echo "Building..."'
+                echo "Username: ${SPLUNK_CREDENTIALS_USR}"
+                echo "Password: ${SPLUNK_CREDENTIALS_PSW}"
             }
         }
         stage('Package Splunk App') {
