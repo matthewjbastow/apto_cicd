@@ -23,12 +23,18 @@ pipeline {
             steps {
                 script {
                     echo "Retrieving ACS token"
-                    def acs_token = sh(script: 'python3 scripts/get_acs_token.py ${ACS_USERNAME} ${ACS_PASSWORD} ${SPLUNK_CLOUD_URL}', returnStdout: true).trim()
+                    def jwt_token = sh(script: 'python3 scripts/get_jwt_token.py ${ACS_USERNAME} ${ACS_PASSWORD}', returnStdout: true).trim()
                     // Store the token as an environment variable for later stages
-                    env.ACS_TOKEN = acs_token
-                    echo "ACS Token retrieved and stored"
-                    echo "$ACS_TOKEN"
+                    env.JWT_TOKEN = jwt_token
+                    echo "JWT Token retrieved and stored"
+                    echo "$JWT_TOKEN"
                 }
+            }
+        }
+        stage('Submit to AppInspect API') {
+            steps {
+                echo "Submitting the app to Splunk AppInspect API"
+                sh 'python3 scripts/inspect_splunk_app_api.py ${APP_PACKAGE} ${JWT_TOKEN}'
             }
         }
     }
