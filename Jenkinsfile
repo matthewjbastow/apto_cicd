@@ -16,6 +16,7 @@ pipeline {
         stage('Package Splunk App') {
             steps {
                 echo "Packaging the Splunk app"
+                echo "Cleaning DS_store Files"
                 sh 'find $SPLUNK_APP_DIR -name ".DS_Store" -type f -delete'
                 sh 'python3 scripts/package_splunk_app.py ${SPLUNK_APP_DIR} ${APP_PACKAGE}'
             }
