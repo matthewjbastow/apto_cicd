@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     echo "Retrieving ACS token"
-                    def jwt_token = sh(script: 'python3 scripts/get_jwt_token.py ${ACS_USERNAME} ${ACS_PASSWORD}', returnStdout: true).trim()
+                    def jwt_token = sh(script: 'python3 scripts/get_jwt_token.py ${SPLUNK_CREDENTIALS_USR} ${SPLUNK_CREDENTIALS_PSW}', returnStdout: true).trim()
                     // Store the token as an environment variable for later stages
                     env.JWT_TOKEN = jwt_token
                     echo "JWT Token retrieved and stored"
